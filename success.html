@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Successful</title>
+</head>
+<body style="font-family: Arial; text-align:center; padding:50px;">
+    
+    <h1>✅ Booking Confirmed!</h1>
+    <p id="orderText"></p>
+
+    <a href="index.html">Go Back Home</a>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        document.getElementById("orderText").textContent =
+            "Your Order ID is: " + id;
+    </script>
+
+</body>
+</html>

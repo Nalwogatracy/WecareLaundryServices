@@ -19,6 +19,10 @@
             "dest": "/track-order.html"
         },
         {
+	  "src": "/success",
+	  "dest": "/success.html"
+	},
+        {
             "src": "/(.*)",
             "dest": "/$1"
         }
