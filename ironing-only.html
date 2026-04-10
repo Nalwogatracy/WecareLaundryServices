@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ironing Only Service | We Care Laundry - Professional Ironing Kampala</title>
+    <meta name="description" content="Professional ironing service in Kampala. Same-day service, steam finishing, starch options. UGX 15,000 per batch. Free pickup & delivery.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; }
+        .logo i { color: #3b82f6; }
+        .logo span { color: #3b82f6; }
+        .nav a { text-decoration: none; color: #4b5563; margin-left: 2rem; font-weight: 500; }
+        .nav a:hover { color: #3b82f6; }
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 4rem 0; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero-price { font-size: 2rem; margin: 1rem 0; }
+        .content { padding: 4rem 0; }
+        .two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .feature-list { list-style: none; margin: 2rem 0; }
+        .feature-list li { padding: 0.75rem 0; display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid #e5e7eb; }
+        .feature-list i { color: #10b981; }
+        .price-card { background: white; border-radius: 24px; padding: 2rem; box-shadow: 0 20px 35px rgba(0,0,0,0.1); text-align: center; position: sticky; top: 100px; }
+        .price { font-size: 3.5rem; font-weight: 800; color: #3b82f6; }
+        .btn { display: inline-block; background: #3b82f6; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; margin-top: 1.5rem; border: none; cursor: pointer; }
+        .btn:hover { background: #2563eb; }
+        .service-image { background: url('https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=600&h=400&fit=crop'); background-size: cover; border-radius: 24px; min-height: 300px; }
+        .other-services { background: #f1f5f9; padding: 4rem 0; margin-top: 3rem; }
+        .other-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+        .other-card { background: white; border-radius: 16px; padding: 1.5rem; text-align: center; text-decoration: none; color: #1e293b; display: block; }
+        .other-card i { font-size: 2rem; color: #3b82f6; margin-bottom: 1rem; }
+        footer { background: #0f172a; color: #94a3b8; padding: 3rem 0 2rem; margin-top: 3rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .footer-section h4 { color: white; margin-bottom: 1rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 0.5rem; }
+        .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid #1e293b; }
+        @media (max-width: 768px) { .two-columns, .other-grid, .footer-content { grid-template-columns: 1fr; } .hero h1 { font-size: 2rem; } }
+        .toast { position: fixed; bottom: 20px; right: 20px; background: #10b981; color: white; padding: 1rem 1.5rem; border-radius: 12px; display: none; z-index: 1000; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo"><i class="fas fa-tshirt"></i> We Care <span>Laundry</span></div>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="wash-fold.html">Wash & Fold</a>
+            <a href="dry-cleaning.html">Dry Cleaning</a>
+            <a href="ironing-only.html">Ironing Only</a>
+            <a href="home-textiles.html">Home Textiles</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Professional Ironing Only</h1>
+        <p>Crisp, wrinkle-free perfection. Same-day service available.</p>
+        <div class="hero-price">UGX 15,000 <span>per batch (up to 10 pieces)</span></div>
+        <button class="btn" onclick="bookService()"><i class="fas fa-calendar-check"></i> Book Now - Free Pickup</button>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container">
+        <div class="two-columns">
+            <div>
+                <h2>Why Choose Our Ironing Service?</h2>
+                <p style="margin: 1.5rem 0; line-height: 1.7;">For those who prefer to wash at home but want expert finishing. Our industrial-grade steam irons and skilled pressers remove every wrinkle. Shirts are starched upon request, and items are either folded neatly or hung on premium hangers. Same-day service available for urgent needs.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Same-day service (order before 10am)</li>
+                    <li><i class="fas fa-check-circle"></i> Steam finishing for deep crease removal</li>
+                    <li><i class="fas fa-check-circle"></i> Starch options (light/medium/heavy)</li>
+                    <li><i class="fas fa-check-circle"></i> Hung or folded as you prefer</li>
+                    <li><i class="fas fa-check-circle"></i> Fabric-safe temperature control</li>
+                    <li><i class="fas fa-check-circle"></i> Fast turnaround within 4 hours</li>
+                    <li><i class="fas fa-check-circle"></i> Professional pressing equipment</li>
+                </ul>
+            </div>
+            <div>
+                <div class="price-card">
+                    <div class="price">UGX 15,000</div>
+                    <p>Per batch (up to 10 pieces)</p>
+                    <hr style="margin: 1.5rem 0;">
+                    <p><i class="fas fa-truck"></i> Free pickup & delivery</p>
+                    <p><i class="fas fa-clock"></i> Same-day service available</p>
+                    <p><i class="fas fa-hand-sparkles"></i> Expert pressers</p>
+                    <button class="btn" onclick="bookService()" style="width: 100%;"><i class="fas fa-calendar-alt"></i> Schedule Pickup</button>
+                </div>
+                <div class="service-image" style="margin-top: 2rem;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="other-services">
+    <div class="container">
+        <h2 style="text-align: center;">Our Other <span style="color:#3b82f6;">Services</span></h2>
+        <div class="other-grid">
+            <a href="wash-fold.html" class="other-card"><i class="fas fa-tshirt"></i><h3>Wash & Fold</h3><p>UGX 25,000</p></a>
+            <a href="dry-cleaning.html" class="other-card"><i class="fas fa-vest"></i><h3>Dry Cleaning</h3><p>UGX 35,000</p></a>
+            <a href="home-textiles.html" class="other-card"><i class="fas fa-bed"></i><h3>Home Textiles</h3><p>UGX 55,000</p></a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section"><h4>We Care Laundry</h4><p>Professional laundry services in Kampala.</p></div>
+            <div class="footer-section"><h4>Contact</h4><ul><li><i class="fas fa-phone"></i> +256741007182</li><li><i class="fas fa-envelope"></i> nalwogatracy46@gmail.com</li></ul></div>
+            <div class="footer-section"><h4>Hours</h4><ul><li>Mon-Sun: 8am - 8pm</li><li>24/7 Customer Support</li></ul></div>
+            <div class="footer-section"><h4>Follow Us</h4><ul><li><i class="fab fa-facebook"></i> Facebook</li><li><i class="fab fa-instagram"></i> Instagram</li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 We Care Laundry. All rights reserved.</p></div>
+    </div>
+</footer>
+
+<div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toast-message">Booking started! We'll call you.</span></div>
+
+<script>
+    function bookService() { const toast = document.getElementById('toast'); toast.style.display = 'block'; setTimeout(() => { toast.style.display = 'none'; }, 3000); }
+</script>
+</body>
+</html>
