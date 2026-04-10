@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Care Laundry | Professional Laundry Services in Kampala</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9fafb;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .logo i {
+            color: #3b82f6;
+        }
+        .highlight {
+            color: #3b82f6;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            margin-left: 2rem;
+            font-weight: 500;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #3b82f6;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .service-content {
+            padding: 4rem 0;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        .feature-list li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .feature-list i {
+            color: #3b82f6;
+        }
+        .price-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            position: sticky;
+            top: 100px;
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #3b82f6;
+            margin: 1rem 0;
+        }
+        .badge {
+            background: #fef3c7;
+            color: #d97706;
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #2563eb;
+        }
+        .other-services {
+            background: #f3f4f6;
+            padding: 4rem 0;
+            margin-top: 3rem;
+        }
+        .other-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .other-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            color: #1f2937;
+            display: block;
+        }
+        .other-card i {
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 3rem 0 1rem;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+        .footer-section a:hover {
+            color: #3b82f6;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+        }
+        @media (max-width: 768px) {
+            .service-grid, .other-grid, .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .nav-links a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-tshirt"></i>
+            <span>We Care <span class="highlight">Laundry</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#" data-page="wash-fold" class="active" id="nav-wash">Wash & Fold</a>
+            <a href="#" data-page="dry-cleaning" id="nav-dry">Dry Cleaning</a>
+            <a href="#" data-page="ironing-only" id="nav-iron">Ironing Only</a>
+            <a href="#" data-page="home-textiles" id="nav-home">Home Textiles</a>
+        </div>
+    </div>
+</nav>
+
+<main id="app">
+    <!-- Dynamic content loads here -->
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>We Care Laundry</h4>
+                <p>Professional laundry services with love and care for every fabric.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#" data-page="wash-fold">Wash & Fold</a></li>
+                    <li><a href="#" data-page="dry-cleaning">Dry Cleaning</a></li>
+                    <li><a href="#" data-page="ironing-only">Ironing Only</a></li>
+                    <li><a href="#" data-page="home-textiles">Home Textiles</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +256741007182</li>
+                    <li><i class="fas fa-envelope"></i> nalwogatracy46@gmail.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sun: 8am - 8pm</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i> <i class="fab fa-twitter"></i> <i class="fab fa-whatsapp"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 We Care Laundry Services. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<div class="toast" id="toast">Booking initiated! We'll contact you shortly.</div>
+
+<script>
+    // Service data for all 4 pages
+    const pages = {
+        'wash-fold': {
+            title: 'Wash & Fold Service',
+            subtitle: 'Everyday laundry made effortless',
+            description: 'Our signature Wash & Fold service is perfect for daily wear, linens, and family laundry. We use eco-friendly detergents, separate colors, and ensure gentle yet deep cleaning. Each item is professionally dried, neatly folded, and returned fresh within 24-48 hours.',
+            features: [
+                'Eco-friendly & hypoallergenic detergents',
+                'Color separation & fabric care',
+                'Free pickup & delivery across Kampala',
+                '24-48 hour turnaround',
+                'Stain pre-treatment included',
+                'Perfectly folded or hung on request'
+            ],
+            price: 'UGX 25,000',
+            priceDetail: 'Per standard bag (up to 5kg)',
+            badge: 'Most Popular',
+            icon: 'fa-tshirt',
+            color: '#1e3c72'
+        },
+        'dry-cleaning': {
+            title: 'Premium Dry Cleaning',
+            subtitle: 'Expert care for delicate & formal wear',
+            description: 'Advanced dry cleaning technology for suits, dresses, silk, wool, and special occasion garments. Our eco-friendly solvents protect colors and textures while removing stubborn stains. Includes professional pressing and protective packaging.',
+            features: [
+                'Delicate fabric specialists',
+                'Stain removal expertise',
+                '24-hour express service available',
+                'Wedding dress preservation',
+                'Leather & suede care',
+                'Complimentary minor repairs'
+            ],
+            price: 'UGX 35,000',
+            priceDetail: 'Per garment (suit/dress)',
+            badge: 'Premium Care',
+            icon: 'fa-vest',
+            color: '#2a5298'
+        },
+        'ironing-only': {
+            title: 'Professional Ironing Only',
+            subtitle: 'Crisp, wrinkle-free perfection',
+            description: 'For those who prefer to wash at home but want expert finishing. Our industrial-grade steam irons and skilled pressers remove every wrinkle. Shirts are starched upon request, and items are either folded neatly or hung on premium hangers.',
+            features: [
+                'Same-day ironing service (order before 10am)',
+                'Steam finishing for deep crease removal',
+                'Starch options (light/medium/heavy)',
+                'Hung or folded as you prefer',
+                'Fabric-safe temperature control',
+                'Fast turnaround within 4 hours'
+            ],
+            price: 'UGX 15,000',
+            priceDetail: 'Per batch (up to 10 pieces)',
+            badge: 'Express Service',
+            icon: 'fa-hand-sparkles',
+            color: '#4a665c'
+        },
+        'home-textiles': {
+            title: 'Home Textile Cleaning',
+            subtitle: 'Curtains, bedding & upholstery care',
+            description: 'Specialized cleaning for bulky household items. We handle curtains, duvets, blankets, pillow covers, and even small rugs. Our industrial machines ensure deep cleaning while preserving fabric integrity.',
+            features: [
+                'Curtains with hardware handling',
+                'Duvet & comforter deep clean',
+                'Allergy-friendly sanitization',
+                'Bulk discounts available (20% off for 5+ items)',
+                'Free pickup for heavy items',
+                'Stain & odor removal guaranteed'
+            ],
+            price: 'UGX 55,000',
+            priceDetail: 'Per set (curtains or bedding)',
+            badge: 'Heavy Duty Care',
+            icon: 'fa-bed',
+            color: '#5c3d6e'
+        }
+    };
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message || 'Booking initiated! We\'ll contact you shortly.';
+        toast.style.display = 'block';
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 2500);
+    }
+
+    function renderPage(pageId) {
+        const page = pages[pageId];
+        if (!page) return;
+
+        // Update active nav
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+        });
+        const activeNav = document.getElementById(`nav-${pageId.replace('-', '')}`);
+        if (activeNav) activeNav.classList.add('active');
+
+        const html = `
+            <section class="page-header" style="background: linear-gradient(135deg, ${page.color} 0%, #1a1a2e 100%);">
+                <div class="container">
+                    <i class="fas ${page.icon}" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h1>${page.title}</h1>
+                    <p>${page.subtitle}</p>
+                </div>
+            </section>
+
+            <section class="service-content">
+                <div class="container">
+                    <div class="service-grid">
+                        <div>
+                            <h2>Why choose our ${page.title.split(' ')[0]} service?</h2>
+                            <p style="margin: 1.5rem 0; line-height: 1.6;">${page.description}</p>
+                            <ul class="feature-list">
+                                ${page.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="price-card">
+                                <div class="badge">${page.badge}</div>
+                                <div class="price">${page.price}</div>
+                                <p>${page.priceDetail}</p>
+                                <hr style="margin: 1.5rem 0;">
+                                <p><i class="fas fa-truck"></i> Free pickup & delivery</p>
+                                <p><i class="fas fa-clock"></i> Flexible scheduling 8am-8pm</p>
+                                <p><i class="fas fa-shield-alt"></i> 100% satisfaction guaranteed</p>
+                                <button class="btn" onclick="showToast('Booking for ${page.title} started! We will call you.')" style="margin-top: 1.5rem; width: 100%;">
+                                    <i class="fas fa-calendar-alt"></i> Book Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="other-services">
+                <div class="container">
+                    <h2 style="text-align: center; margin-bottom: 2rem;">Our Other <span class="highlight">Services</span></h2>
+                    <div class="other-grid">
+                        ${Object.keys(pages).filter(key => key !== pageId).map(key => {
+                            const p = pages[key];
+                            return `
+                                <a href="#" class="other-card" data-page="${key}">
+                                    <i class="fas ${p.icon}"></i>
+                                    <h3>${p.title}</h3>
+                                    <p>${p.subtitle}</p>
+                                    <strong style="color: #3b82f6;">${p.price}</strong>
+                                </a>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+            </section>
+        `;
+
+        document.getElementById('app').innerHTML = html;
+
+        // Attach click handlers to other service cards
+        document.querySelectorAll('.other-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                const newPage = card.getAttribute('data-page');
+                if (newPage) renderPage(newPage);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    }
+
+    // Navigation handlers
+    document.querySelectorAll('.nav-links a, .footer-section a[data-page]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = link.getAttribute('data-page');
+            if (page && pages[page]) {
+                renderPage(page);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Also handle footer service links
+    document.querySelectorAll('.footer-section ul li a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = link.getAttribute('data-page');
+            if (page && pages[page]) {
+                renderPage(page);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Load default page - Wash & Fold
+    renderPage('wash-fold');
+</script>
+<script>
+    // This makes #wash-fold, #dry-cleaning, etc. work when clicked from index.html
+    if (window.location.hash) {
+        const page = window.location.hash.substring(1); // removes the #
+        if (['wash-fold', 'dry-cleaning', 'ironing-only', 'home-textiles'].includes(page)) {
+            renderPage(page);
+        }
+    }
+</script>
+</body>
+</html>

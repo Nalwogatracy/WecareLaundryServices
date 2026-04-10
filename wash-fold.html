@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details | We Care Laundry & Dry Cleaning</title>
+    <meta name="description" content="Detailed information about our professional laundry services: Wash & Fold, Dry Cleaning, Ironing Only, and Home Textiles. Premium care with free pickup and delivery in Kampala.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #faf9ff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.95);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 24px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: #4361ee;
+            font-size: 1.8rem;
+        }
+
+        .logo span {
+            color: #1a1a2e;
+        }
+
+        .highlight {
+            color: #4361ee;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1a2e;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #4361ee;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Service Hero */
+        .service-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Service Detail Card */
+        .service-detail {
+            padding: 4rem 0;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .detail-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        .detail-content .price-badge {
+            display: inline-block;
+            background: #4361ee;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 1rem 0;
+        }
+
+        .detail-content .description {
+            color: #555;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li i {
+            color: #4361ee;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #4361ee;
+            color: white;
+            box-shadow: 0 4px 15px rgba(67,97,238,0.3);
+        }
+
+        .btn-primary:hover {
+            background: #3550c9;
+            transform: translateY(-2px);
+        }
+
+        .detail-image {
+            background: linear-gradient(135deg, #f5f7ff 0%, #e9ecff 100%);
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .detail-image i {
+            font-size: 8rem;
+            color: #4361ee;
+            margin-bottom: 1rem;
+        }
+
+        .detail-image h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        /* Pricing Table */
+        .pricing-table {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+
+        .pricing-table h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta .btn-primary {
+            background: white;
+            color: #4361ee;
+            margin-top: 1rem;
+        }
+
+        .cta .btn-primary:hover {
+            background: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f1a;
+            color: #fff;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #4361ee;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+            color: #888;
+        }
+
+        /* Toast */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4361ee;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateX(400px);
+            transition: transform 0.3s;
+            z-index: 2000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .toast-notification.show {
+            transform: translateX(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-tshirt"></i>
+                <span>We Care <span class="highlight">Laundry</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="booking.html">Book Now</a>
+                <a href="track-order.html">Track Order</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="mobile-menu" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dynamic Service Content -->
+    <main id="serviceContent"></main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-tshirt"></i>
+                        <span>We Care <span class="highlight">Laundry</span></span>
+                    </div>
+                    <p>Professional laundry services with love and care for every fabric.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul id="footerServiceLinks">
+                        <!-- Dynamic footer service links will be added by JS -->
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><a href="tel:+256741007182"><i class="fas fa-phone"></i> +256741007182</a></li>
+                        <li><a href="mailto:nalwogatracy46@gmail.com"><i class="fas fa-envelope"></i> nalwogatracy46@gmail.com</a></li>
+                        <li><i class="fas fa-clock"></i> Mon-Sun: 8am - 8pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 We Care Laundry Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-notification" id="toast">
+        <div class="toast-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="toast-message">Added to cart! Book now for special discount.</div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Service data
+        const services = {
+            'wash-fold': {
+                name: 'Wash & Fold',
+                icon: 'fa-tshirt',
+                price: '$15',
+                priceUgx: '55,000 UGX',
+                description: 'Our premium Wash & Fold service is perfect for everyday clothing. We use eco-friendly detergents, separate colors, and ensure each garment is washed at optimal temperatures. Your clothes come back fresh, neatly folded, and ready to wear.',
+                features: [
+                    'Eco-friendly, hypoallergenic detergents',
+                    'Color separation & fabric care',
+                    'Professional folding or hanging options',
+                    'Free pickup & delivery',
+                    '24-hour turnaround available',
+                    'Satisfaction guaranteed'
+                ],
+                pricing: [
+                    { item: 'Shirts / Blouses', price: '$2.50' },
+                    { item: 'T-Shirts', price: '$1.80' },
+                    { item: 'Jeans / Pants', price: '$3.00' },
+                    { item: 'Dresses', price: '$3.50' }
+                ]
+            },
+            'dry-cleaning': {
+                name: 'Dry Cleaning',
+                icon: 'fa-vest',
+                price: '$25',
+                priceUgx: '90,000 UGX',
+                description: 'Expert dry cleaning for delicate fabrics, suits, evening gowns, and special garments. Our eco-friendly solvents are gentle on fabrics yet tough on stains. Includes professional pressing, stain treatment, and protective packaging.',
+                features: [
+                    'Premium stain removal technology',
+                    'Professional pressing & finishing',
+                    'Protective garment bags',
+                    'Same-day service for rush orders',
+                    'Suede & leather care available',
+                    'Wedding dress preservation'
+                ],
+                pricing: [
+                    { item: 'Suits (2-piece)', price: '$12.00' },
+                    { item: 'Dresses / Gowns', price: '$15.00' },
+                    { item: 'Coats / Jackets', price: '$10.00' },
+                    { item: 'Ties / Scarves', price: '$4.00' }
+                ]
+            },
+            'ironing-only': {
+                name: 'Ironing Only',
+                icon: 'fa-hand-sparkles',
+                price: '$10',
+                priceUgx: '35,000 UGX',
+                description: 'Perfect for those who wash at home but want professional, crisp finishes. Our expert pressers use industrial steam irons and finishing equipment to remove every wrinkle. Clothes are either folded neatly or hung on premium hangers.',
+                features: [
+                    'Industrial steam finishing',
+                    'Crisp creases and wrinkle-free results',
+                    'Same-day service available',
+                    'Folded or hung (your choice)',
+                    'Stain spotting on request',
+                    'Bulk discounts for large volumes'
+                ],
+                pricing: [
+                    { item: 'Shirts', price: '$1.50' },
+                    { item: 'Pants / Trousers', price: '$2.00' },
+                    { item: 'Dresses', price: '$2.50' },
+                    { item: 'Skirts', price: '$1.80' }
+                ]
+            },
+            'home-textiles': {
+                name: 'Home Textiles',
+                icon: 'fa-bed',
+                price: '$30',
+                priceUgx: '110,000 UGX',
+                description: 'Specialized cleaning for curtains, bedding, duvets, cushions, and other household fabrics. We handle bulky items with care, using industrial machines that deep clean while preserving fabric integrity. Free pickup for multiple items.',
+                features: [
+                    'Large capacity machines for bulk items',
+                    'Dust mite & allergen removal',
+                    'Curtain re-hanging service available',
+                    'Comforter & duvet cleaning specialists',
+                    'Volume discounts for full home sets',
+                    'Stain protection treatment optional'
+                ],
+                pricing: [
+                    { item: 'Curtains (per panel)', price: '$8.00' },
+                    { item: 'Bed Sheet Set', price: '$6.00' },
+                    { item: 'Duvet / Comforter', price: '$15.00' },
+                    { item: 'Cushion Covers (set of 4)', price: '$10.00' }
+                ]
+            }
+        };
+
+        // Get service from URL hash or default to wash-fold
+        function getServiceId() {
+            const hash = window.location.hash.substring(1);
+            if (hash && services[hash]) return hash;
+            const params = new URLSearchParams(window.location.search);
+            const serviceParam = params.get('service');
+            if (serviceParam && services[serviceParam]) return serviceParam;
+            return 'wash-fold';
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msgDiv = toast.querySelector('.toast-message');
+            msgDiv.textContent = message || 'Added to cart! Book now for special discount.';
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function renderServicePage(serviceId) {
+            const service = services[serviceId];
+            if (!service) return;
+
+            const mainContainer = document.getElementById('serviceContent');
+            mainContainer.innerHTML = `
+                <section class="service-hero" data-aos="fade-down">
+                    <div class="container">
+                        <h1><i class="fas ${service.icon}"></i> ${service.name}</h1>
+                        <p>Premium quality care for your garments • Free pickup & delivery across Kampala</p>
+                    </div>
+                </section>
+
+                <section class="service-detail">
+                    <div class="container">
+                        <div class="detail-grid">
+                            <div class="detail-content" data-aos="fade-right">
+                                <h2>${service.name} Service</h2>
+                                <div class="price-badge">Starting from ${service.price} / ${service.priceUgx}</div>
+                                <p class="description">${service.description}</p>
+                                <h3><i class="fas fa-star" style="color:#4361ee;"></i> Key Features</h3>
+                                <ul class="feature-list">
+                                    ${service.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}
+                                </ul>
+                                <a href="booking.html?service=${serviceId}" class="btn btn-primary">
+                                    <i class="fas fa-calendar-check"></i> Book This Service Now
+                                </a>
+                                <button class="btn btn-primary" style="background:#28a745; margin-left: 1rem;" id="quickBookToastBtn">
+                                    <i class="fas fa-cart-plus"></i> Quick Enquiry
+                                </button>
+                            </div>
+                            <div class="detail-image" data-aos="fade-left">
+                                <i class="fas ${service.icon}"></i>
+                                <h3>${service.name} Experts</h3>
+                                <p>Trusted by 5000+ happy customers in Kampala</p>
+                                <div class="pricing-table">
+                                    <h4><i class="fas fa-tag"></i> Popular Pricing (per item)</h4>
+                                    ${service.pricing.map(p => `<div class="pricing-row"><span>${p.item}</span><strong>${p.price}</strong></div>`).join('')}
+                                    <div class="pricing-row" style="border-bottom: none; margin-top: 10px; font-size:0.9rem; color:#666;">
+                                        <span>*Bulk & subscription discounts available</span>
+                                        <span><i class="fas fa-gift"></i> 20% off first order</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="cta" data-aos="zoom-in">
+                    <div class="container">
+                        <h2>Ready for fresh, perfectly cleaned ${service.name.toLowerCase()}?</h2>
+                        <p>Schedule your free pickup today and get 20% off your first order + free delivery</p>
+                        <a href="booking.html?service=${serviceId}" class="btn btn-primary">
+                            <i class="fas fa-calendar-week"></i> Claim Your Discount
+                        </a>
+                    </div>
+                </section>
+            `;
+
+            // Attach event to quick book button after DOM update
+            const quickBtn = document.getElementById('quickBookToastBtn');
+            if (quickBtn) {
+                quickBtn.addEventListener('click', () => {
+                    showToast(`✨ ${service.name} added! Book now to get 20% off + free delivery.`);
+                });
+            }
+        }
+
+        // Update active nav and generate footer service links with correct routing
+        function updateFooterLinks() {
+            const footerList = document.getElementById('footerServiceLinks');
+            if (footerList) {
+                footerList.innerHTML = `
+                    <li><a href="service-pages.html#wash-fold" class="service-footer-link" data-service="wash-fold">Wash & Fold</a></li>
+                    <li><a href="service-pages.html#dry-cleaning" class="service-footer-link" data-service="dry-cleaning">Dry Cleaning</a></li>
+                    <li><a href="service-pages.html#ironing-only" class="service-footer-link" data-service="ironing-only">Ironing Only</a></li>
+                    <li><a href="service-pages.html#home-textiles" class="service-footer-link" data-service="home-textiles">Home Textiles</a></li>
+                `;
+                // Add click handlers to footer service links
+                document.querySelectorAll('.service-footer-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const service = link.getAttribute('data-service');
+                        if (service) {
+                            window.location.hash = service;
+                            renderServicePage(service);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            showToast(`Viewing ${services[service]?.name} details`);
+                        }
+                    });
+                });
+            }
+        }
+
+        // Handle hash change
+        function handleHashChange() {
+            const serviceId = getServiceId();
+            renderServicePage(serviceId);
+        }
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '70px';
+                    navLinks.style.left = '0';
+                    navLinks.style.right = '0';
+                    navLinks.style.backgroundColor = 'white';
+                    navLinks.style.padding = '1rem';
+                    navLinks.style.gap = '1rem';
+                    navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                }
+            });
+        }
+
+        // Ensure nav links work and preserve service context on navigation
+        function setupNavServiceLinks() {
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && (href.includes('booking.html') || href.includes('contact.html') || href.includes('track-order.html') || href === 'index.html')) {
+                    // For other pages, we keep standard behavior, but we'll add current service param to booking
+                    if (href.includes('booking.html')) {
+                        link.addEventListener('click', (e) => {
+                            const currentService = getServiceId();
+                            if (currentService) {
+                                e.preventDefault();
+                                window.location.href = `booking.html?service=${currentService}`;
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        // Initialize page
+        function init() {
+            updateFooterLinks();
+            handleHashChange();
+            setupNavServiceLinks();
+            
+            // Also handle any click on service cards from potential external?
+            window.addEventListener('hashchange', () => {
+                handleHashChange();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        init();
+
+        // Additional: if there is any external link in footer, we already handled
+        // Also handle responsive nav when window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navLinks) {
+                navLinks.style.display = '';
+                navLinks.style.position = '';
+                navLinks.style.flexDirection = '';
+                navLinks.style.backgroundColor = '';
+                navLinks.style.padding = '';
+                navLinks.style.gap = '';
+                navLinks.style.boxShadow = '';
+            } else if (window.innerWidth <= 768 && navLinks && navLinks.style.display !== 'flex') {
+                navLinks.style.display = '';
+            }
+        });
+    </script>
+</body>
+</html>
