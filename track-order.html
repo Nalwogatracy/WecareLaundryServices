@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order - We Care Laundry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-tshirt"></i>
+                <span>We Care <span class="highlight">Laundry</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="booking.html">Book Now</a>
+                <a href="track-order.html" class="active">Track Order</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="track-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Track Your <span class="highlight">Order</span></h2>
+                <p>Enter your order ID to track the status</p>
+            </div>
+
+            <div class="track-container" data-aos="fade-up">
+                <div class="track-form">
+                    <input type="text" id="orderId" placeholder="Enter Order ID (e.g., WC-12345)">
+                    <button onclick="trackOrder()" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Track Order
+                    </button>
+                </div>
+
+                <div id="trackingResult" class="tracking-result" style="display: none;">
+                    <div class="order-info">
+                        <h3>Order Details</h3>
+                        <div class="info-grid">
+                            <div><strong>Order ID:</strong> <span id="trackOrderId"></span></div>
+                            <div><strong>Customer:</strong> <span id="trackCustomerName"></span></div>
+                            <div><strong>Service:</strong> <span id="trackService"></span></div>
+                            <div><strong>Weight:</strong> <span id="trackWeight"></span> kg</div>
+                            <div><strong>Pickup Date:</strong> <span id="trackPickupDate"></span></div>
+                            <div><strong>Status:</strong> <span id="trackStatus"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="status-timeline">
+                        <div class="status-step" data-status="pending">
+                            <div class="step-icon"><i class="fas fa-clock"></i></div>
+                            <div class="step-label">Pending</div>
+                        </div>
+                        <div class="status-step" data-status="confirmed">
+                            <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                            <div class="step-label">Confirmed</div>
+                        </div>
+                        <div class="status-step" data-status="picked_up">
+                            <div class="step-icon"><i class="fas fa-truck"></i></div>
+                            <div class="step-label">Picked Up</div>
+                        </div>
+                        <div class="status-step" data-status="in_progress">
+                            <div class="step-icon"><i class="fas fa-hand-sparkles"></i></div>
+                            <div class="step-label">In Progress</div>
+                        </div>
+                        <div class="status-step" data-status="delivered">
+                            <div class="step-icon"><i class="fas fa-gift"></i></div>
+                            <div class="step-label">Delivered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 We Care Laundry Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-notification" id="toast">
+        <div class="toast-icon"><i class="fas fa-bell"></i></div>
+        <div class="toast-message"></div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
