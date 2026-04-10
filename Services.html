@@ -50,6 +50,7 @@
             color: #4b5563;
             margin-left: 2rem;
             font-weight: 500;
+            cursor: pointer;
         }
         .nav-links a:hover, .nav-links a.active {
             color: #3b82f6;
@@ -144,6 +145,7 @@
             text-decoration: none;
             color: #1f2937;
             display: block;
+            cursor: pointer;
         }
         .other-card i {
             font-size: 2rem;
@@ -174,6 +176,7 @@
         .footer-section a {
             color: #9ca3af;
             text-decoration: none;
+            cursor: pointer;
         }
         .footer-section a:hover {
             color: #3b82f6;
@@ -203,6 +206,18 @@
             display: none;
             z-index: 1000;
         }
+        .back-home {
+            display: inline-block;
+            margin-top: 1rem;
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+        }
+        .back-home:hover {
+            background: rgba(255,255,255,0.3);
+        }
     </style>
 </head>
 <body>
@@ -214,10 +229,10 @@
             <span>We Care <span class="highlight">Laundry</span></span>
         </div>
         <div class="nav-links">
-            <a href="#" data-page="wash-fold" class="active" id="nav-wash">Wash & Fold</a>
-            <a href="#" data-page="dry-cleaning" id="nav-dry">Dry Cleaning</a>
-            <a href="#" data-page="ironing-only" id="nav-iron">Ironing Only</a>
-            <a href="#" data-page="home-textiles" id="nav-home">Home Textiles</a>
+            <a data-page="wash-fold" class="active" id="nav-wash">Wash & Fold</a>
+            <a data-page="dry-cleaning" id="nav-dry">Dry Cleaning</a>
+            <a data-page="ironing-only" id="nav-iron">Ironing Only</a>
+            <a data-page="home-textiles" id="nav-home">Home Textiles</a>
         </div>
     </div>
 </nav>
@@ -236,10 +251,10 @@
             <div class="footer-section">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#" data-page="wash-fold">Wash & Fold</a></li>
-                    <li><a href="#" data-page="dry-cleaning">Dry Cleaning</a></li>
-                    <li><a href="#" data-page="ironing-only">Ironing Only</a></li>
-                    <li><a href="#" data-page="home-textiles">Home Textiles</a></li>
+                    <li><a data-page="wash-fold">Wash & Fold</a></li>
+                    <li><a data-page="dry-cleaning">Dry Cleaning</a></li>
+                    <li><a data-page="ironing-only">Ironing Only</a></li>
+                    <li><a data-page="home-textiles">Home Textiles</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -252,8 +267,11 @@
             </div>
             <div class="footer-section">
                 <h4>Follow Us</h4>
-                <div class="social-links">
-                    <i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i> <i class="fab fa-twitter"></i> <i class="fab fa-whatsapp"></i>
+                <div>
+                    <i class="fab fa-facebook" style="margin-right: 1rem;"></i>
+                    <i class="fab fa-instagram" style="margin-right: 1rem;"></i>
+                    <i class="fab fa-twitter" style="margin-right: 1rem;"></i>
+                    <i class="fab fa-whatsapp"></i>
                 </div>
             </div>
         </div>
@@ -359,7 +377,15 @@
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.classList.remove('active');
         });
-        const activeNav = document.getElementById(`nav-${pageId.replace('-', '')}`);
+        
+        // Map pageId to nav element ID
+        const navMap = {
+            'wash-fold': 'nav-wash',
+            'dry-cleaning': 'nav-dry',
+            'ironing-only': 'nav-iron',
+            'home-textiles': 'nav-home'
+        };
+        const activeNav = document.getElementById(navMap[pageId]);
         if (activeNav) activeNav.classList.add('active');
 
         const html = `
@@ -368,6 +394,7 @@
                     <i class="fas ${page.icon}" style="font-size: 3rem; margin-bottom: 1rem;"></i>
                     <h1>${page.title}</h1>
                     <p>${page.subtitle}</p>
+                    <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
                 </div>
             </section>
 
@@ -406,12 +433,12 @@
                         ${Object.keys(pages).filter(key => key !== pageId).map(key => {
                             const p = pages[key];
                             return `
-                                <a href="#" class="other-card" data-page="${key}">
+                                <div class="other-card" data-page="${key}">
                                     <i class="fas ${p.icon}"></i>
                                     <h3>${p.title}</h3>
                                     <p>${p.subtitle}</p>
                                     <strong style="color: #3b82f6;">${p.price}</strong>
-                                </a>
+                                </div>
                             `;
                         }).join('')}
                     </div>
@@ -432,41 +459,54 @@
         });
     }
 
-    // Navigation handlers
-    document.querySelectorAll('.nav-links a, .footer-section a[data-page]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const page = link.getAttribute('data-page');
-            if (page && pages[page]) {
-                renderPage(page);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+    // Set up all navigation click handlers
+    function setupNavigation() {
+        // Top navigation links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = link.getAttribute('data-page');
+                if (page && pages[page]) {
+                    renderPage(page);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
         });
-    });
 
-    // Also handle footer service links
-    document.querySelectorAll('.footer-section ul li a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const page = link.getAttribute('data-page');
-            if (page && pages[page]) {
-                renderPage(page);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+        // Footer service links
+        document.querySelectorAll('.footer-section a[data-page]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = link.getAttribute('data-page');
+                if (page && pages[page]) {
+                    renderPage(page);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
         });
-    });
+    }
 
-    // Load default page - Wash & Fold
-    renderPage('wash-fold');
-</script>
-<script>
-    // This makes #wash-fold, #dry-cleaning, etc. work when clicked from index.html
-    if (window.location.hash) {
-        const page = window.location.hash.substring(1); // removes the #
-        if (['wash-fold', 'dry-cleaning', 'ironing-only', 'home-textiles'].includes(page)) {
-            renderPage(page);
+    // Initialize the page
+    function init() {
+        setupNavigation();
+        
+        // Check URL hash for direct linking from index.html
+        // Example: services.html#wash-fold
+        if (window.location.hash) {
+            let hashPage = window.location.hash.substring(1); // removes the #
+            if (pages[hashPage]) {
+                renderPage(hashPage);
+            } else {
+                renderPage('wash-fold');
+            }
+        } else {
+            // Default page
+            renderPage('wash-fold');
         }
     }
+
+    // Start everything when page loads
+    init();
 </script>
 </body>
 </html>
